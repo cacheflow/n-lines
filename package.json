@@ -1,0 +1,23 @@
+{
+  "name": "n-lines",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cacheflow/n-lines.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cacheflow/n-lines/issues"
+  },
+  "homepage": "https://github.com/cacheflow/n-lines#readme",
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "chai": "^4.0.1"
+  }
+}
