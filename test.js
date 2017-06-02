@@ -7,8 +7,6 @@ const expect = chai.expect
 const should = require('chai').should();
 
 
-let num = 0;
-
 describe('nLines function', function() {
   let testArr = ['hello world', "hello world", "hello world"]
 
@@ -32,8 +30,20 @@ describe('nLines function', function() {
 
   it('should throw an error when number of lines value is not a number', function() {
     let newTestArr = testArr.slice()
-    let err = 'Numer of lines value is not a number. Try passing a number as your newline.'
+    let err = "Looks like you didn't pass a number as your first argument. Try passing a number like 1."
     let func = () => nLines({}, {prepend: true}, ...newTestArr)
+    return expect(func).to.throw(Error, err)
+  })
+
+  it('should throw an error when users forgets to pass a string to add lines to', function() {
+    let err = "Looks like you didn't pass a string to add lines to. Try passing a proper string."
+    let func = () => nLines(1, {prepend: true})
+    return expect(func).to.throw(Error, err)
+  })
+
+  it('should throw an error when users does not pass an object to options', function() {
+    let err = "Looks like options is not an object. Try passing an object of your options like {prepend: true}"
+    let func = () => nLines(1, [], "")
     return expect(func).to.throw(Error, err)
   })
 
@@ -53,6 +63,16 @@ describe('nLines function', function() {
     }
     let result = nLines("1000", {prepend: true}, ...testArr)
     return expect(result)
+      .to.equal(newTestArr.join('\n'))
+  })
+
+  it('should prepend and append when a user passes true to both options.', function() {
+    let newTestArr = testArr.slice()
+    for(var i = 0; i < 3; i++) {
+      newTestArr.unshift('\n')
+      newTestArr.push('\n')
+    }
+    return expect( nLines("3", {prepend: true, append: true}, ...testArr) )
       .to.equal(newTestArr.join('\n'))
   })
 })

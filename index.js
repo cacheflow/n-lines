@@ -3,7 +3,13 @@
 module.exports = ((numOfNewLines = 1, opts = {}, ...args) => {
   let numOfNewLinesAsInt = parseInt(numOfNewLines)
   if ( isNaN(numOfNewLines) ) {
-    throw new Error('Numer of lines value is not a number. Try passing a number as your newline.')
+    throw new Error("Looks like you didn't pass a number as your first argument. Try passing a number like 1.")
+  }
+  if ( !args.length ) {
+    throw new Error("Looks like you didn't pass a string to add lines to. Try passing a proper string.")
+  }
+  if ( Object.create(opts).constructor != Object) {
+    throw new Error( 'Looks like options is not an object. Try passing an object of your options like {prepend: true}' )
   }
   let optsKeys = Object.keys(opts)
   let obj = Object.assign(opts)
@@ -16,7 +22,7 @@ module.exports = ((numOfNewLines = 1, opts = {}, ...args) => {
         if ( (key === 'prepend' && obj[key] === true) ) {
           newArr.unshift("\n")
         }
-        else if (key === 'append' && obj[key] === true) {
+        else if ( key === 'append' && obj[key] === true ) {
           newArr.push('\n')
         }
         else {

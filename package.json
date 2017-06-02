@@ -15,6 +15,13 @@
   "bugs": {
     "url": "https://github.com/cacheflow/n-lines/issues"
   },
+  "keywords": [
+    "newlines",
+    "lines",
+    "string",
+    "newline",
+    "line"
+  ],
   "homepage": "https://github.com/cacheflow/n-lines#readme",
   "devDependencies": {
     "assert": "^1.4.1",
