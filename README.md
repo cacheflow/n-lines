@@ -16,8 +16,7 @@ npm install --save n-lines
 ## How to use
 n-lines takes three arguments. The first is the number of lines you want to add to a string.
 The second is an object of options which can be prepend OR append or prepend AND append. Whatever option you select
-must have a corresponding boolean of true with it for your lines to be added properly. The third argument is the string itself. If you don't pass
-any options then one line is prepended to your string automatically.
+must have a corresponding boolean of true with it for your lines to be added properly. The third argument can either be a string, an array of strings, or object with strings you want lines added to. Note, passing an object or array returns a [generator](https://davidwalsh.name/es6-generators) function which will return your strings one by one until the function is completed. They can be accessed using .next().value. Once, it's finished the done value will have a false value. Lastly, If you don't pass any options then one line is prepended to your string automatically.
 ##
 
 ```js
@@ -28,7 +27,7 @@ let numOfLinesToAdd = 1
 nLines(numOfLinesToAdd, options, str)
 ```
 
-##Options
+## Options
 Options is an object which takes either prepend, append, or both as arguments. All of the below examples are valid:
  ```
  let optionsWithOnlyPrepend = {
@@ -53,6 +52,16 @@ let options = {prepend: true}
 let str = "Hello World"
 let numOfLinesToAdd = 1
 nLines(numOfLinesToAdd, options, str)
+
+
+let arr = ["Hello World", "Hello World", "Hello World"]
+let numOfLinesToAdd = 2
+nLines(numOfLinesToAdd, options, arr)
+
+let obj = {hello: "world", hello: "world", hello: "world"}
+let numOfLinesToAdd = 2
+nLines(numOfLinesToAdd, options, obj)
+
 ```
 The output of the above example will be:
 &nbsp;
@@ -61,7 +70,7 @@ Hello World
 
 ## Tests
 Tests are written with [Mocha](http://visionmedia.github.com/mocha/) and can be
-run with `npm test`. 
+run with `npm test`.
 
 ## License
 
