@@ -54,19 +54,49 @@ let numOfLinesToAdd = 1
 nLines(numOfLinesToAdd, options, str)
 
 
-let arr = ["Hello World", "Hello World", "Hello World"]
+let arr = ["I", "love", "avocado toast"]
 let numOfLinesToAdd = 2
 nLines(numOfLinesToAdd, options, arr)
 
-let obj = {hello: "world", hello: "world", hello: "world"}
-let numOfLinesToAdd = 2
+let obj = {name: "Samuel Jackson", occupation: "actor", born: "1948"}
+let numOfLinesToAdd = 3
 nLines(numOfLinesToAdd, options, obj)
-
 ```
-The output of the above example will be:
-&nbsp;
+## Output
 
-Hello World
+### First example
+```js
+\n
+Hello
+\n
+World
+```
+
+### Second example
+```js
+\n
+\n
+Avocado
+\n
+\n
+Toast
+```
+
+### Third Example
+```
+\n
+\n
+\n
+Samuel Jackson
+\n
+\n
+\n
+actor
+\n
+\n
+\n
+1948
+```
 
 ## Tests
 Tests are written with [Mocha](http://visionmedia.github.com/mocha/) and can be
