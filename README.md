@@ -76,10 +76,16 @@ World
 ```js
 \n
 \n
-Avocado
+I
 \n
 \n
-Toast
+love
+\n
+\n
+avocado
+\n
+\n
+toast
 ```
 
 ### Third Example
